@@ -1,12 +1,15 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.1'
-	id 'io.spring.dependency-management' version '1.1.0'
+//	id 'org.springframework.boot' version '3.0.1'
+//	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.springframework.boot' version '2.7.7'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = 17
+targetCompatibility = 17
 
 repositories {
 	mavenCentral()
@@ -18,7 +21,12 @@ ext {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
+	implementation 'org.flywaydb:flyway-core'
+	implementation 'org.flywaydb:flyway-mysql'
+	implementation 'org.flywaydb:flyway-sqlserver'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
+
+//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
 	runtimeOnly 'com.mysql:mysql-connector-j'
