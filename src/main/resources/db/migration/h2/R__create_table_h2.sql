@@ -1,0 +1,4 @@
+CREATE TABLE H2
+(
+    id VARCHAR(13) PRIMARY KEY
+);

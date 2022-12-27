@@ -1,5 +1,7 @@
 spring:
   profiles:
+    active:
+      - postgres
     group:
       h2:
         - database-h2
@@ -9,3 +11,6 @@ spring:
         - database-postgres
       mysql:
         - database-mysql
+
+  flyway:
+    locations: classpath:db/migration/{vendor}
