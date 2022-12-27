@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    group:
+      h2:
+        - database-h2
+      sqlserver:
+        - database-sqlserver
+      postgres:
+        - database-postgres
+      mysql:
+        - database-mysql
