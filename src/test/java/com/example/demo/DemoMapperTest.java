@@ -19,6 +19,8 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 
 @SpringBootTest
+@ActiveProfiles("postgres")
+
 class DemoMapperTest {
 
   @Autowired
@@ -43,6 +45,8 @@ class DemoMapperTest {
 
     @Test
     void test_01() {
+      System.out.println("***************");
+      System.out.println(DemoApplicationTests.postgres.isRunning());
       mapper.findPostgres();
       assertThatThrownBy(() -> mapper.findH2()).isInstanceOf(DataAccessException.class);
     }

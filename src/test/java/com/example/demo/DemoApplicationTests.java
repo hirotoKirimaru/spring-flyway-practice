@@ -14,7 +14,7 @@ import org.testcontainers.utility.DockerImageName;
 class DemoApplicationTests {
 
   @Container
-  private static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
+  public static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
       DockerImageName.parse("postgres"))
       .withUsername("user")
       .withPassword("pass")
