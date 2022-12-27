@@ -7,8 +7,12 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface DemoMapper {
 
+  @Select("SELECT * FROM MASTER")
+  List<CommonColumn> findMaster();
   @Select("SELECT * FROM H2")
-  List<Postgres> findH2();
+  List<CommonColumn> findH2();
   @Select("SELECT * FROM POSTGRESQL")
-  List<Postgres> findPostgres();
+  List<CommonColumn> findPostgres();
+  @Select("SELECT * FROM MYSQL")
+  List<CommonColumn> findMySql();
 }

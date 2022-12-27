@@ -13,6 +13,7 @@ import org.testcontainers.utility.DockerImageName;
 @Testcontainers
 class DemoApplicationTests {
 
+  // TODO: テストコンテナー使うときは継承しないとダメ。テストクラスごとに再構築することになる。
   @Container
   public static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
       DockerImageName.parse("postgres"))
@@ -26,8 +27,9 @@ class DemoApplicationTests {
 
   @DynamicPropertySource
   static void setup(DynamicPropertyRegistry registry) {
-    registry.add("spring.datasource.url",
-        postgres::getJdbcUrl); // コンテナで起動中のPostgresへ接続するためのJDBC URLをプロパティへ設定
+    registry.add("spring.datasource.url", postgres::getJdbcUrl); // コンテナで起動中のPostgresへ接続するためのJDBC URLをプロパティへ設定
+    registry.add("spring.datasource.username", postgres::getUsername);
+    registry.add("spring.datasource.password", postgres::getPassword);
   }
 
   @Test
